@@ -33,20 +33,20 @@ const App = () => {
                   id: `item.${item.id}.image`,
                   animation: 'move',
                   resize: 'clip',
-                  align: 'center',
+                  align: 'center-center',
                 },
                 {
                   id: `item.${item.id}.title`,
                   animation: 'fade',
                   resize: 'clip',
-                  align: 'center',
+                  align: 'center-center',
                 },
 
                 {
                   id: `item.${item.id}.description`,
                   animation: 'fade',
                   resize: 'clip',
-                  align: 'center-top',
+                  align: 'center-center',
                 },
               ];
             }}
@@ -75,20 +75,20 @@ const App = () => {
                   id: `item.${item.id}.image`,
                   animation: 'move',
                   resize: 'clip',
-                  align: 'center',
+                  align: 'center-center',
                 },
                 {
                   id: `item.${item.id}.title`,
                   animation: 'fade',
                   resize: 'clip',
-                  align: 'center',
+                  align: 'center-center',
                 },
 
                 {
                   id: `item.${item.id}.description`,
                   animation: 'fade',
                   resize: 'clip',
-                  align: 'center-top',
+                  align: 'center-center',
                 },
               ];
             }}

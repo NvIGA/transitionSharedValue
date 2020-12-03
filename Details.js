@@ -16,15 +16,20 @@ const Detail = (props) => {
   return (
     <ScrollView style={styles.scrollView}>
       <View>
-        <SharedElement id={`item.${item.id}.image`}>
-          <Image
-            resizeMode={'center'}
-            style={styles.baner}
-            source={{
-              uri: item.imageUrl,
-            }}
-          />
-        </SharedElement>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate('List', {item});
+          }}>
+          <SharedElement id={`item.${item.id}.image`}>
+            <Image
+              resizeMode={'center'}
+              style={styles.baner}
+              source={{
+                uri: item.imageUrl,
+              }}
+            />
+          </SharedElement>
+        </TouchableOpacity>
         <View style={styles.textWrapper}>
           <TouchableOpacity>
             <SharedElement id={`item.${item.id}.title`}>
