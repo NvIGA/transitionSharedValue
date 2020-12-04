@@ -11,9 +11,9 @@ import React from 'react';
 import List from './List';
 import {StatusBar} from 'react-native';
 import Detail from './Details';
-import {enableScreens} from 'react-native-screens';
+// import {enableScreens} from 'react-native-screens';
 
-enableScreens();
+// enableScreens();
 
 const Stack = createSharedElementStackNavigator();
 
@@ -23,52 +23,11 @@ const App = () => {
       <NavigationContainer>
         <StatusBar barStyle="dark-content" />
         <Stack.Navigator initialRouteName="List" headerMode={'none'}>
-          <Stack.Screen
-            name="List"
-            component={List}
-            sharedElements={(route) => {
-              const {item} = route.params;
-              return [
-                {
-                  id: `item.${item.id}.image`,
-                  animation: 'move',
-                  resize: 'clip',
-                  align: 'center-center',
-                },
-                {
-                  id: `item.${item.id}.title`,
-                  animation: 'fade',
-                  resize: 'clip',
-                  align: 'center-center',
-                },
-
-                {
-                  id: `item.${item.id}.description`,
-                  animation: 'fade',
-                  resize: 'clip',
-                  align: 'center-center',
-                },
-              ];
-            }}
-            options={() => ({
-              transitionSpec: {
-                open: {animation: 'timing', config: {duration: 500}},
-                close: {animation: 'timing', config: {duration: 500}},
-              },
-              gestureEnabled: true,
-              cardStyleInterpolator: ({current: {progress}}) => {
-                return {
-                  cardStyle: {
-                    opacity: progress,
-                  },
-                };
-              },
-            })}
-          />
+          <Stack.Screen name="List" component={List} />
           <Stack.Screen
             name="Detail"
             component={Detail}
-            sharedElements={(route) => {
+            sharedElementsConfig={(route) => {
               const {item} = route.params;
               return [
                 {

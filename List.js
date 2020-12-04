@@ -1,5 +1,6 @@
 import React from 'react';
 import {SharedElement} from 'react-navigation-shared-element';
+
 import {
   Text,
   SafeAreaView,
@@ -11,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const List = (props) => {
+export default (props) => {
   const text = `The show revolves around the adventures of the members of the Smith household, which consists of parents Jerry and Beth, their children Summer and Morty, and Beth's father, Rick Sanchez, who lives with them as a guest. According to Justin Roiland, the family lives outside of Seattle, Washington.[3] The adventures of Rick and Morty, however, take place across an infinite number
     of realities, with the characters travelling to other planets
     and dimensions through portals and Rick's flying car. Rick is an
@@ -56,26 +57,26 @@ const List = (props) => {
         <TouchableOpacity
           style={styles.card}
           activeOpacity={0.8}
-          onPress={() => props.navigation.push('Detail', {item})}>
-          <View>
-            <SharedElement id={`item.${item.id}.image`}>
-              <Image
-                resizeMode={'center'}
-                style={styles.baner}
-                source={{
-                  uri: item.imageUrl,
-                }}
-              />
-            </SharedElement>
+          onPress={() => {
+            props.navigation.navigate('Detail', {item});
+          }}>
+          <SharedElement id={`item.${item.id}.image`}>
+            <Image
+              resizeMode={'center'}
+              style={styles.baner}
+              source={{
+                uri: item.imageUrl,
+              }}
+            />
+          </SharedElement>
 
-            <View style={styles.textWrapper}>
-              <SharedElement id={`item.${item.id}.title`}>
-                <Text style={styles.title}>{item.title}</Text>
-              </SharedElement>
-              <SharedElement id={`item.${item.id}.description`}>
-                <Text style={styles.description}>{item.description}</Text>
-              </SharedElement>
-            </View>
+          <View style={styles.textWrapper}>
+            <SharedElement id={`item.${item.id}.title`}>
+              <Text style={styles.title}>{item.title}</Text>
+            </SharedElement>
+            <SharedElement id={`item.${item.id}.description`}>
+              <Text style={styles.description}>{item.description}</Text>
+            </SharedElement>
           </View>
         </TouchableOpacity>
       </ScrollView>
@@ -116,5 +117,3 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
 });
-
-export default List;

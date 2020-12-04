@@ -8,7 +8,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {} from 'react-native-gesture-handler';
 
 const Detail = (props) => {
   const {item} = props.route.params;
@@ -18,7 +17,7 @@ const Detail = (props) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate('List', {item});
+            props.navigation.goBack();
           }}>
           <SharedElement id={`item.${item.id}.image`}>
             <Image
